@@ -1,0 +1,246 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Roboto";
+}
+body{
+    background-color: white;
+    position: relative;
+    width: 1535px;
+    height: 700px;
+}
+.header{
+    width: 1535px;
+    height: 50px;
+    padding: 10px 40px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #212529;
+    align-items: center;
+}
+.header h1{
+    width: 124px;
+    height: 25px;    
+    font-weight: 700;
+    font-size: 20px;
+    color: white;
+}
+.header nav{
+    display: flex;
+    gap: 52px;
+}
+.header nav a{
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 13.5px; 
+}
+.header nav .selected{
+    color: #FFFFFF8C;
+}
+.body{
+    padding: 20px 120px 0px;
+    height: 600px;
+    width: 1535px;
+}
+.body .container{
+    width: 1320px;
+    height: 542px;
+    padding: 0 12px;  
+    margin-left: 10.5px; 
+}
+.body .container h1{
+    font-weight: 500;
+    font-size: 28px;
+    letter-spacing: 0px;    
+}
+.body .container .interactLine{
+    margin: 15px 0 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 1249px;
+}
+.body .container .interactLine .addButton{
+    width: 140px;
+    height: 35px;
+    border-radius: 6px;
+    border: 1px solid #0D6EFD;
+    background-color: #0D6EFD;
+    line-height: 24px;
+    font-size: 14px;
+    text-align: center;
+    color: white;
+}
+.body .container .interactLine .sortByLine{
+    display: flex;
+    gap: 16px;
+}
+.body .container .interactLine .sortByLine select{
+    width: 150px;
+    height: 35px;
+    border: 1px solid #DEE2E6;
+    border-radius: 6px;    
+    font-size: 15.79px;
+    line-height: 26px;
+}
+.body .container .interactLine .sortByLine input{
+    width: 210px;
+    height: 35px;
+    border: 1px solid #DEE2E6;
+    border-radius: 6px;    
+    font-size: 15.79px;
+    line-height: 26px;
+    padding: 5px;
+}
+.body .container table{
+    width: 1250px;
+    border: 1px solid #DEE2E6;
+    border-collapse: collapse;
+    text-align: center;
+}
+.body .container table thead tr th{
+    background-color: black;
+    color: white;
+    padding: 8.5px;
+    height: 41px;
+}
+#id{
+    width: 65px;
+    font-weight: 800;
+    font-size: 14.7px;
+    line-height: 24px;
+}
+#name{
+    width: 319.5px;
+    font-weight: 800;
+    font-size: 15.2px;
+    line-height: 24px;
+}
+#category{
+    width: 220px;
+    font-weight: 800;
+    font-size: 14.72px;
+    line-height: 24px;    
+}
+#questionNum{
+    width: 275.5px;
+    font-weight: 800;
+    font-size: 15.55px;
+    line-height: 24px;
+}
+#time{
+    width: 170px;
+    font-weight: 800;
+    font-size: 14.77px;
+    line-height: 24px; 
+}
+#action{
+    width: 247px;
+    font-weight: 800;
+    font-size: 14.61px;
+    line-height: 24px;    
+}
+.body .container table tbody tr td{
+    padding: 8.5px;
+    height: 48px;
+}
+.body .container table tbody tr:nth-child(odd){
+    background-color: #f2f2f2;
+}
+.body .container table tbody tr:nth-child(even){
+    background-color: white;
+}
+.body .container table tbody tr td .fixButton{
+    width: 41px;
+    height: 31px;
+    border-radius: 4px;
+    border: 1px solid #FFC107;
+    color: black;
+    background-color: #FFC107;
+    font-size: 13.54px;
+    line-height: 21px;
+}
+.body .container table tbody tr td .deleteButton{
+    width: 58px;
+    height: 31px;
+    border-radius: 4px;
+    border: 1px solid #DC3545;
+    background-color: #DC3545;  
+    font-size: 13.9px;
+    line-height: 21px;
+}
+
+.body .container .pageNum{
+    position: absolute;
+    bottom: 30px;
+    width: 1250px;
+    height: 38px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+.body .container .pageNum .numbers{
+    display: flex;
+}
+.body .container .pageNum .numbers .number{
+    width: 32px;
+    height: 30px;
+    border: 1px solid #DEE2E6; 
+    background-color: white;  
+    color: #0D6EFD;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.body .container .pageNum .numbers .selected{
+    border: 1px solid #0D6EFD; 
+    background-color: #0D6EFD;  
+    color: white;
+}
+.body .container .pageNum .goBack{
+    width: 32px;
+    height: 30px;
+    border: 1px solid #DEE2E6;
+    color: #212529;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+.body .container .pageNum .goForward{
+    width: 32px;
+    height: 30px;
+    border: 1px solid #DEE2E6;
+    color: #212529;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+.container .pageNum .unavailable{
+    color: #d9dfe4;
+    background-color: #E9ECEF;
+}
+
+
+.footer{
+    width: 1535px;
+    height: 45px;
+    background-color: #333333;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 31px;
+}
+.footer div{
+    width: 1500px;
+    font-weight: 400;
+    font-size: 13px; 
+    text-align: center;   
+}

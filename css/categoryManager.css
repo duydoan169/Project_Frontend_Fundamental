@@ -1,0 +1,358 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Roboto";
+}
+body{
+    background-color: white;
+    position: relative;
+    width: 1535px;
+    height: 700px;
+}
+.header{
+    width: 1535px;
+    height: 50px;
+    padding: 10px 40px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #212529;
+    align-items: center;
+}
+.header h1{
+    width: 124px;
+    height: 25px;    
+    font-weight: 700;
+    font-size: 20px;
+    color: white;
+}
+.header nav{
+    display: flex;
+    gap: 52px;
+}
+.header nav a{
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 13.5px;  
+}
+.header nav .selected{
+    color: #FFFFFF8C;
+}
+.body{
+    padding: 20px 120px 0px;
+    height: 600px;
+    width: 1535px;
+}
+.container{
+    width: 1320px;
+    height: 542px;
+    padding: 0 12px; 
+    margin-left: 10.5px;
+}
+.body h1{
+    font-weight: 500;
+    font-size: 28px;
+    letter-spacing: 0px;    
+}
+.body .addButton{
+    width: 140px;
+    height: 35px;
+    border-radius: 6px;
+    border: 1px solid #0D6EFD;
+    background-color: #0D6EFD;
+    line-height: 24px;
+    font-size: 14px;
+    text-align: center;
+    color: white;
+    margin: 15px 0 20px;
+}
+.body table{
+    width: 1250px;
+    border: 1px solid #DEE2E6;
+    border-collapse: collapse;
+    text-align: center;
+}
+.body table thead tr th{
+    background-color: black;
+    color: white;
+    padding: 8.5px;
+    height: 41px;
+}
+#id{
+    width: 149px;
+    font-weight: 800;
+    font-size: 14.7px;
+    line-height: 24px;
+}
+#name{
+    width: 920px;
+    font-weight: 800;
+    font-size: 15.2px;
+    line-height: 24px;
+}
+#action{
+    width: 227px;
+    font-weight: 800;
+    font-size: 14.61px;
+    line-height: 24px;    
+}
+.body .container table tbody tr td{
+    padding: 8.5px;
+    height: 48px;
+}
+.body table tbody tr:nth-child(odd){
+    background-color: #f2f2f2;
+}
+.body table tbody tr:nth-child(even){
+    background-color: white;
+}
+.body table tbody tr td .fixButton{
+    width: 41px;
+    height: 31px;
+    border-radius: 4px;
+    border: 1px solid #FFC107;
+    color: black;
+    background-color: #FFC107;
+    font-size: 13.54px;
+    line-height: 21px;
+}
+.body table tbody tr td .deleteButton{
+    width: 58px;
+    height: 31px;
+    border-radius: 4px;
+    border: 1px solid #DC3545;
+    background-color: #DC3545;  
+    font-size: 13.9px;
+    line-height: 21px;
+}
+
+.container .pageNum{
+    position: absolute;
+    bottom: 30px;
+    width: 1250px;
+    height: 38px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+.container .pageNum .numbers{
+    display: flex;
+}
+.container .pageNum .numbers .number{
+    width: 32px;
+    height: 30px;
+    border: 1px solid #DEE2E6; 
+    background-color: white;  
+    color: #0D6EFD;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container .pageNum .numbers .selected{
+    border: 1px solid #0D6EFD; 
+    background-color: #0D6EFD;  
+    color: white;
+}
+.container .pageNum .goBack{
+    width: 32px;
+    height: 30px;
+    border: 1px solid #DEE2E6;
+    color: #212529;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+.container .pageNum .goForward{
+    width: 32px;
+    height: 30px;
+    border: 1px solid #DEE2E6;
+    color: #212529;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+.container .pageNum .unavailable{
+    color: #d9dfe4;
+    background-color: #E9ECEF;
+}
+
+
+.footer{
+    width: 1535px;
+    height: 45px;
+    background-color: #333333;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 31px;
+}
+.footer div{
+    width: 1500px;
+    font-weight: 400;
+    font-size: 13px;    
+    text-align: center;   
+}
+
+.popUpBackground{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0.3;
+    display: none;
+}
+.addPopUp{
+    width: 30%;
+    height: fit-content;
+    background-color: white;
+    position: absolute;
+    top: 35px;
+    left: 35%;
+    box-shadow: 0px 8px 8px -4px #10182808;
+    box-shadow: 0px 20px 24px -4px #10182814;
+    border-radius: 8px;
+    display: none;
+}
+.addPopUp .top{
+    border-bottom: 2px solid #DEE2E6;
+    display: flex;
+    padding: 16px 20px;
+    justify-content: space-between;
+    font-family: Inter;
+    font-weight: 500;
+    font-size: 12.5px;
+}
+.addPopUp .top div{
+    font-size: 23px;
+    color: #818181;
+}
+.addPopUp .mid{
+    padding: 16px 25px;
+    border-bottom: 2px solid #DEE2E6;
+}
+.addPopUp .mid label{
+    font-family: Inter;
+    font-weight: 500;
+    line-height: 30px;
+}
+.addPopUp .mid input{
+    width: 415px;
+    height: 40px;
+    border-radius: 8px;
+    border-width: 1px;
+    padding: 10px 14px;  
+    box-shadow: 0px 1px 2px 0px #1018280D;
+    margin-bottom: 5px;
+}
+.addPopUp .mid p{
+    color: #DC3545;
+    font-size: 10px;
+    font-family: Inter;
+    line-height: 10px;
+    margin-bottom: 10px;
+}
+.addPopUp .bot{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 15px 20px;
+}
+.addPopUp .bot .cancelButton{
+    background-color: #6C757D;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    width: 55px;
+    height: 35px;
+}
+.addPopUp .bot .saveButton{
+    background-color: #0D6EFD;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    width: 55px;
+    height: 35px;
+}
+
+.fixPopUp{
+    width: 30%;
+    height: fit-content;
+    background-color: white;
+    position: absolute;
+    top: 35px;
+    left: 35%;
+    box-shadow: 0px 8px 8px -4px #10182808;
+    box-shadow: 0px 20px 24px -4px #10182814;
+    border-radius: 8px;
+    display: none;
+}
+.fixPopUp .top{
+    border-bottom: 2px solid #DEE2E6;
+    display: flex;
+    padding: 16px 20px;
+    justify-content: space-between;
+    font-family: Inter;
+    font-weight: 500;
+    font-size: 12.5px;
+}
+.fixPopUp .top div{
+    font-size: 23px;
+    color: #818181;
+}
+.fixPopUp .mid{
+    padding: 16px 25px;
+    border-bottom: 2px solid #DEE2E6;
+}
+.fixPopUp .mid label{
+    font-family: Inter;
+    font-weight: 500;
+    line-height: 30px;
+}
+.fixPopUp .mid input{
+    width: 415px;
+    height: 40px;
+    border-radius: 8px;
+    border-width: 1px;
+    padding: 10px 14px;  
+    box-shadow: 0px 1px 2px 0px #1018280D;
+    margin-bottom: 5px;
+}
+.fixPopUp .mid p{
+    color: #DC3545;
+    font-size: 10px;
+    font-family: Inter;
+    line-height: 10px;
+    margin-bottom: 10px;
+}
+.fixPopUp .bot{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 15px 20px;
+}
+.fixPopUp .bot .cancelButton{
+    background-color: #6C757D;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    width: 55px;
+    height: 35px;
+}
+.fixPopUp .bot .saveButton{
+    background-color: #0D6EFD;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    width: 55px;
+    height: 35px;
+}
