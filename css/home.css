@@ -88,6 +88,7 @@ body{
     width: 1320px;
     height: 782px;
     position: relative;
+    margin-right: 20px;
 }
 .main .main-white .container h2{
     font-weight: 500;

@@ -222,7 +222,7 @@ body{
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
 }
-.container .pageNum .unavailable{
+.body .container .pageNum .unavailable{
     color: #d9dfe4;
     background-color: #E9ECEF;
 }

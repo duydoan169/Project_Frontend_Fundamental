@@ -18,6 +18,7 @@ let tests=JSON.parse(localStorage.getItem("tests"))||[
     {id:1, testName:"Thách thức sự hiểu biết của bạn", categoryId:1, image:"/assets/images/quiz web design/Container/image 1.png", playTime:15, playAmount:5, questions:[]},
     {id:1, testName:"Thách thức sự hiểu biết của bạn", categoryId:1, image:"/assets/images/quiz web design/Container/image 1.png", playTime:15, playAmount:5, questions:[]}
 ];
+localStorage.setItem("tests", JSON.stringify(tests));
 let currentPage=1;
 let itemsPerPage=8;
 let totalPages = Math.ceil(tests.length / itemsPerPage);
