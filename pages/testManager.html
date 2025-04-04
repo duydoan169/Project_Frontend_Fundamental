@@ -26,11 +26,11 @@
                 <div class="sortByLine">
                     <select name="" id="">
                         <option value="" hidden selected>Sắp xếp theo</option>
-                        <option value="" >Sắp xếp ID</option>
-                        <option value="" >Sắp xếp theo số câu hỏi</option>
-                        <option value="" >Sắp xếp theo thời gian</option>
+                        <option value="id" >Sắp xếp ID</option>
+                        <option value="questionNum" >Sắp xếp theo số câu hỏi</option>
+                        <option value="time" >Sắp xếp theo thời gian</option>
                     </select>
-                    <input class="searchByName" type="text" placeholder="Tìm kiếm theo tên">
+                    <input oninput="searchByName()" class="searchByName" type="text" placeholder="Tìm kiếm theo tên">
                 </div>
             </div>
             <table border="1">
