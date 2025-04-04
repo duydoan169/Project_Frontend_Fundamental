@@ -15,6 +15,7 @@ function loginAccount(){
                 title: "Đăng nhập thành công!",
                 icon: "success",
             });
+            localStorage.setItem("loginStatus", 1);
             count++;
             if(user.role=="admin"){
                 window.location.href="./categoryManager.html";

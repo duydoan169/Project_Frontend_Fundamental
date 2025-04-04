@@ -15,7 +15,7 @@
         <nav>
             <a class="selected" href="./categoryManager.html">Danh mục</a>
             <a href="./testManager.html">Bài test</a>
-            <a href="./login.html">Đăng xuất</a>
+            <a onclick="localStorage.setItem(`loginStatus`, 0)" href="./login.html">Đăng xuất</a>
         </nav>
     </div>
     <div class="body">
@@ -53,6 +53,7 @@
         <div>© 2025 Quiz App. All rights reserved.</div>
     </div>
     <div class="popUpBackground"></div>
+    
     <div class="addPopUp">
         <div class="top">
             <h1>Thêm danh mục</h1>
@@ -86,6 +87,20 @@
         <div class="bot">
             <button class="cancelButton">Hủy</button>
             <button class="saveButton">Lưu</button>
+        </div>
+    </div>
+
+    <div class="deletePopUp">
+        <div class="top">
+            <h1>Xóa danh mục</h1>
+            <div onclick="hidePopUp()">x</div>
+        </div>
+        <div class="mid">
+            <p>Bạn chắc chắn muốn xoá danh mục này?</p>
+        </div>
+        <div class="bot">
+            <button class="cancelButton">Hủy</button>
+            <button class="deleteButton">Xóa</button>
         </div>
     </div>
     <script src="/js/categoryManager.js"></script>

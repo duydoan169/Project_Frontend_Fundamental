@@ -31,5 +31,6 @@ function registerAccount(){
         title: "Đăng ký tài khoản thành công",
         icon: "success",
     });
+    localStorage.setItem("loginStatus", 1);
     window.location.href="./home.html";
 }

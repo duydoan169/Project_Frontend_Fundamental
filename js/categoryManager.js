@@ -1,3 +1,11 @@
+function loginStatusCheck(){
+    if(localStorage.getItem("loginStatus")!=1){
+        window.location.href="./login.html"
+    }
+}
+loginStatusCheck();
+
+
 let categories=JSON.parse(localStorage.getItem("categories"))||[
     {id:1, name:"Lịch sử", emoji:"📚"},
     {id:2, name:"Lịch sử", emoji:"📚"},
@@ -35,7 +43,7 @@ function printCategories(){
             <tr>
                 <td>${categories[i].id}</td>
                 <td align="left">${categories[i].emoji} ${categories[i].name}</td>
-                <td><button onclick="fixCategory()" class="fixButton">Sửa</button> <button class="deleteButton">Xóa</button></td>
+                <td><button onclick="fixCategory()" class="fixButton">Sửa</button> <button onclick="deleteCategory()" class="deleteButton">Xóa</button></td>
             </tr>`
     }
     document.getElementsByTagName("tbody")[0].innerHTML=str;
@@ -86,8 +94,13 @@ function hidePopUp(){
     document.getElementsByClassName("addPopUp")[0].style.display="none";
     document.getElementsByClassName("popUpBackground")[0].style.display="none";
     document.getElementsByClassName("fixPopUp")[0].style.display="none";
+    document.getElementsByClassName("deletePopUp")[0].style.display="none";
 }
 function fixCategory(){
     document.getElementsByClassName("fixPopUp")[0].style.display="block";
+    document.getElementsByClassName("popUpBackground")[0].style.display="block";
+}
+function deleteCategory(){
+    document.getElementsByClassName("deletePopUp")[0].style.display="block";
     document.getElementsByClassName("popUpBackground")[0].style.display="block";
 }

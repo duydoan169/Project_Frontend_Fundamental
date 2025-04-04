@@ -1,9 +1,17 @@
+function loginStatusCheck(){
+    if(localStorage.getItem("loginStatus")!=1){
+        window.location.href="./login.html"
+    }
+}
+loginStatusCheck();
+
+
 document.body.style.zoom = "80%";
 let tests=JSON.parse(localStorage.getItem("tests"))||[
-    {id:1, testName:"Thách thức sự hiểu biết của bạn", categoryId:1, image:"/assets/images/quiz web design/Container/image 1.png", playTime:15, playAmount:1, questions:[]},
-    {id:1, testName:"Thách thức sự hiểu biết của bạn", categoryId:1, image:"/assets/images/quiz web design/Container/image 1.png", playTime:15, playAmount:2, questions:[]},
-    {id:1, testName:"Thách thức sự hiểu biết của bạn", categoryId:1, image:"/assets/images/quiz web design/Container/image 1.png", playTime:15, playAmount:3, questions:[]},
-    {id:1, testName:"Thách thức sự hiểu biết của bạn", categoryId:1, image:"/assets/images/quiz web design/Container/image 1.png", playTime:15, playAmount:2, questions:[]},
+    {id:1, testName:"Thách thức sự hiểu biết của bạn1", categoryId:1, image:"/assets/images/quiz web design/Container/image 1.png", playTime:15, playAmount:1, questions:[]},
+    {id:1, testName:"Thách thức sự hiểu biết của bạn2", categoryId:1, image:"/assets/images/quiz web design/Container/image 1.png", playTime:15, playAmount:2, questions:[]},
+    {id:1, testName:"Thách thức sự hiểu biết của bạn3", categoryId:1, image:"/assets/images/quiz web design/Container/image 1.png", playTime:15, playAmount:3, questions:[]},
+    {id:1, testName:"Thách thức sự hiểu biết của bạn4", categoryId:1, image:"/assets/images/quiz web design/Container/image 1.png", playTime:15, playAmount:2, questions:[]},
     {id:1, testName:"Thách thức sự hiểu biết của bạn", categoryId:1, image:"/assets/images/quiz web design/Container/image 1.png", playTime:15, playAmount:5, questions:[]},
     {id:1, testName:"Thách thức sự hiểu biết của bạn", categoryId:1, image:"/assets/images/quiz web design/Container/image 1.png", playTime:15, playAmount:6, questions:[]},
     {id:1, testName:"Thách thức sự hiểu biết của bạn", categoryId:1, image:"/assets/images/quiz web design/Container/image 1.png", playTime:15, playAmount:4, questions:[]},

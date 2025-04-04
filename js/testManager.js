@@ -1,3 +1,11 @@
+function loginStatusCheck(){
+    if(localStorage.getItem("loginStatus")!=1){
+        window.location.href="./login.html"
+    }
+}
+loginStatusCheck();
+
+
 let tests=JSON.parse(localStorage.getItem("tests"))||[];
 let currentPage=1;
 let itemsPerPage=8;
@@ -18,7 +26,7 @@ function printTests(){
                 <td align="left">📚 Lịch sử</td>
                 <td align="left">${tests[i].questions.length}</td>
                 <td align="left">${tests[i].playTime} min</td>
-                <td><button class="fixButton">Sửa</button> <button class="deleteButton">Xóa</button></td>
+                <td><button class="fixButton">Sửa</button> <button onclick="deleteTest()" class="deleteButton">Xóa</button></td>
             </tr>`
     }
     document.getElementsByTagName("tbody")[0].innerHTML=str;
@@ -59,3 +67,12 @@ function buttonUnavailable(){
         document.getElementsByClassName("goForward")[0].classList.remove("unavailable");
     }
 }
+function hidePopUp(){
+    document.getElementsByClassName("popUpBackground")[0].style.display="none";
+    document.getElementsByClassName("deletePopUp")[0].style.display="none";
+}
+function deleteTest(){
+    document.getElementsByClassName("deletePopUp")[0].style.display="block";
+    document.getElementsByClassName("popUpBackground")[0].style.display="block";
+}
+
