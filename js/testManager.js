@@ -10,6 +10,7 @@ let currentPage=1;
 let itemsPerPage=8;
 let totalPages = Math.ceil(tests.length / itemsPerPage);
 
+//khai báo các giá trị tìm kiếm
 let searchedValue=document.getElementsByClassName("searchByName")[0].value.trim();
 let searchedTests=tests.filter(item => item.testName.toLowerCase().includes(searchedValue.toLowerCase()));
 let totalSearchedPages=Math.ceil(searchedTests.length / itemsPerPage);
@@ -19,6 +20,14 @@ function printTests(){
     let pageStart=itemsPerPage*(currentPage-1);
     let pageEnd=itemsPerPage*currentPage;
     totalPages = Math.ceil(tests.length / itemsPerPage);
+    let sortBy=document.getElementById("sortByOthers").value;
+    if(sortBy=="id"){
+        tests.sort((a,b) => a.id - b.id);
+    } else if(sortBy=="questionNum"){
+        tests.sort((a,b) => a.questions.length - b.questions.length);
+    } else if(sortBy=="time"){
+        tests.sort((a,b) => a.playTime - b.playTime);
+    }
     let str="";
     for(let i=pageStart; i<pageEnd; i++){
         if(i>=tests.length){
@@ -46,7 +55,7 @@ function printTests(){
 printTests();
 function goToPage(index){
     currentPage=index;
-    if(document.getElementsByClassName("searchByName")[0].value.trim().length==0){
+    if(searchedValue.length==0){
         printTests();
     } else{
         searchByName();
@@ -55,7 +64,7 @@ function goToPage(index){
 function goBack(){
     if(currentPage>1){
         currentPage--;
-        if(document.getElementsByClassName("searchByName")[0].value.trim().length==0){
+        if(searchedValue.length==0){
             printTests();
         } else{
             searchByName();
@@ -112,12 +121,19 @@ function deleteTest(){
 
 function searchByName(){
     searchedValue=document.getElementsByClassName("searchByName")[0].value.trim();
-    console.log(searchedValue);
     if(searchedValue.length>0){
         searchedTests=tests.filter(item => item.testName.toLowerCase().includes(searchedValue.toLowerCase()));
         let pageStart=itemsPerPage*(currentPage-1);
         let pageEnd=itemsPerPage*currentPage;
         totalSearchedPages=Math.ceil(searchedTests.length / itemsPerPage);
+        let sortBy=document.getElementById("sortByOthers").value;
+        if(sortBy=="id"){
+            searchedTests.sort((a,b) => a.id - b.id);
+        } else if(sortBy=="questionNum"){
+            searchedTests.sort((a,b) => a.questions.length - b.questions.length);
+        } else if(sortBy=="time"){
+            searchedTests.sort((a,b) => a.playTime - b.playTime);
+        }
         let str="";
         for(let i=pageStart; i<pageEnd; i++){
             if(i>=searchedTests.length){
@@ -144,5 +160,13 @@ function searchByName(){
         buttonUnavailable();
     }else{
         printTests();
+    }
+}
+
+function sortByOthers(){
+    if(searchedValue.length==0){
+        printTests();
+    } else{
+        searchByName();
     }
 }
