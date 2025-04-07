@@ -61,14 +61,15 @@
         </div>
         <div class="mid">
             <label for="">Tên danh mục</label> <br>
-            <input type="text">
-            <p>Tên danh mục đã tồn tại</p>
+            <input id="categoryName" class="inputBar" type="text">
+            <p class="redWarning"></p>
             <label for="">Emoji</label> <br>
-            <input type="text">
+            <input id="categoryEmoji" class="inputBar" type="text">
+            <p class="redWarning"></p>
         </div>
         <div class="bot">
-            <button class="cancelButton">Hủy</button>
-            <button class="saveButton">Lưu</button>
+            <button onclick="hidePopUp()" class="cancelButton">Hủy</button>
+            <button onclick="saveCategory()" class="saveButton">Lưu</button>
         </div>
     </div>
 
@@ -79,10 +80,11 @@
         </div>
         <div class="mid">
             <label for="">Tên danh mục</label> <br>
-            <input type="text">
-            <p>Tên danh mục đã tồn tại</p>
+            <input class="inputBar" type="text">
+            <p class="redWarning"></p>
             <label for="">Emoji</label> <br>
-            <input type="text">
+            <input class="inputBar" type="text">
+            <p class="redWarning"></p>
         </div>
         <div class="bot">
             <button class="cancelButton">Hủy</button>
@@ -99,8 +101,8 @@
             <p>Bạn chắc chắn muốn xoá danh mục này?</p>
         </div>
         <div class="bot">
-            <button class="cancelButton">Hủy</button>
-            <button class="deleteButton">Xóa</button>
+            <button onclick="hidePopUp()" class="cancelButton">Hủy</button>
+            <button onclick="confirmDelete()" class="deleteButton">Xóa</button>
         </div>
     </div>
     <script src="/js/categoryManager.js"></script>

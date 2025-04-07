@@ -6,27 +6,7 @@ function loginStatusCheck(){
 loginStatusCheck();
 
 
-let categories=JSON.parse(localStorage.getItem("categories"))||[
-    {id:1, name:"Lịch sử", emoji:"📚"},
-    {id:2, name:"Lịch sử", emoji:"📚"},
-    {id:3, name:"Lịch sử", emoji:"📚"},
-    {id:4, name:"Lịch sử", emoji:"📚"},
-    {id:5, name:"Lịch sử", emoji:"📚"},
-    {id:6, name:"Lịch sử", emoji:"📚"},
-    {id:7, name:"Lịch sử", emoji:"📚"},
-    {id:8, name:"Lịch sử", emoji:"📚"},
-    {id:9, name:"Lịch sử", emoji:"📚"},
-    {id:1, name:"Lịch sử", emoji:"📚"},
-    {id:2, name:"Lịch sử", emoji:"📚"},
-    {id:3, name:"Lịch sử", emoji:"📚"},
-    {id:4, name:"Lịch sử", emoji:"📚"},
-    {id:5, name:"Lịch sử", emoji:"📚"},
-    {id:6, name:"Lịch sử", emoji:"📚"},
-    {id:7, name:"Lịch sử", emoji:"📚"},
-    {id:8, name:"Lịch sử", emoji:"📚"},
-    {id:7, name:"Lịch sử", emoji:"📚"},
-    {id:8, name:"Lịch sử", emoji:"📚"}
-];
+let categories=JSON.parse(localStorage.getItem("categories"))||[];
 let currentPage=1;
 let itemsPerPage=8;
 let totalPages = Math.ceil(categories.length / itemsPerPage);
@@ -43,7 +23,7 @@ function printCategories(){
             <tr>
                 <td>${categories[i].id}</td>
                 <td align="left">${categories[i].emoji} ${categories[i].name}</td>
-                <td><button onclick="fixCategory()" class="fixButton">Sửa</button> <button onclick="deleteCategory()" class="deleteButton">Xóa</button></td>
+                <td><button onclick="fixCategory()" class="fixButton">Sửa</button> <button onclick="deleteCategory(${i})" class="deleteButton">Xóa</button></td>
             </tr>`
     }
     document.getElementsByTagName("tbody")[0].innerHTML=str;
@@ -91,16 +71,60 @@ function addCategory(){
     document.getElementsByClassName("popUpBackground")[0].style.display="block";
 }
 function hidePopUp(){
-    document.getElementsByClassName("addPopUp")[0].style.display="none";
     document.getElementsByClassName("popUpBackground")[0].style.display="none";
+    document.getElementsByClassName("addPopUp")[0].style.display="none";
     document.getElementsByClassName("fixPopUp")[0].style.display="none";
     document.getElementsByClassName("deletePopUp")[0].style.display="none";
+    document.getElementsByClassName("redWarning")[0].style.display="none";
+    document.getElementsByClassName("redWarning")[1].style.display="none";
+    document.getElementsByClassName("redWarning")[2].style.display="none";
+    document.getElementsByClassName("redWarning")[3].style.display="none";
+    for (let i = 0; i < document.getElementsByClassName("inputBar").length; i++) {
+        document.getElementsByClassName("inputBar")[i].value = "";
+    }
 }
 function fixCategory(){
     document.getElementsByClassName("fixPopUp")[0].style.display="block";
     document.getElementsByClassName("popUpBackground")[0].style.display="block";
 }
-function deleteCategory(){
+let deleteIndex;
+function deleteCategory(index){
     document.getElementsByClassName("deletePopUp")[0].style.display="block";
     document.getElementsByClassName("popUpBackground")[0].style.display="block";
+    deleteIndex=index;
+}
+function saveCategory(){
+    let categoryName=document.getElementById("categoryName").value.trim();
+    let categoryEmoji=document.getElementById("categoryEmoji").value.trim();
+    if(categoryName == 0){
+        document.getElementsByClassName("redWarning")[0].style.display="block";
+        document.getElementsByClassName("redWarning")[0].textContent="Không được để trống tên danh mục";
+        return;
+    }else{
+        document.getElementsByClassName("redWarning")[0].style.display="none";
+    }
+    if(categoryEmoji.length == 0){
+        document.getElementsByClassName("redWarning")[1].style.display="block";
+        document.getElementsByClassName("redWarning")[1].textContent="Không được để trống emoji";
+        return;
+    } else{
+        document.getElementsByClassName("redWarning")[1].style.display="none";
+    }
+    if(categories.some(categories => categories.name == categoryName)){
+        document.getElementsByClassName("redWarning")[0].style.display="block";
+        document.getElementsByClassName("redWarning")[0].textContent="Tên danh mục đã tồn tại";
+        return;
+    } else{
+        document.getElementsByClassName("redWarning")[1].style.display="none";
+    }
+    categories.push({id:categories.length+1, name: categoryName, emoji: categoryEmoji});
+    localStorage.setItem("categories", JSON.stringify(categories));
+    hidePopUp();
+    printCategories();
+}
+function confirmDelete(){
+    categories.splice(deleteIndex,1);
+    localStorage.setItem("categories", JSON.stringify(categories));
+    hidePopUp();
+    printCategories();
 }
