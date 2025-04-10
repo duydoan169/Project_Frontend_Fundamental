@@ -22,11 +22,11 @@
         <div class="container">
             <h1>Quản lý bài test</h1>
             <div class="interactLine">
-                <button class="addButton">Thêm bài test</button>
+                <button onclick="window.location.href=`./addTests.html`" class="addButton">Thêm bài test</button>
                 <div class="sortByLine">
                     <select name="" id="sortByOthers" onchange="sortByOthers()">
                         <option value="" hidden selected>Sắp xếp theo</option>
-                        <option value="id" >Sắp xếp ID</option>
+                        <option value="name" >Sắp xếp tên</option>
                         <option value="questionNum" >Sắp xếp theo số câu hỏi</option>
                         <option value="time" >Sắp xếp theo thời gian</option>
                     </select>
@@ -80,10 +80,11 @@
             <p>Bạn chắc chắn muốn xoá bài test này?</p>
         </div>
         <div class="bot">
-            <button class="cancelButton">Hủy</button>
-            <button class="deleteButton">Xóa</button>
+            <button onclick="hidePopUp()" class="cancelButton">Hủy</button>
+            <button onclick="confirmDelete()" class="deleteButton">Xóa</button>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/js/testManager.js"></script>
 </body>
 </html>

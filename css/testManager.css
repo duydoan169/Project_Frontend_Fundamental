@@ -7,11 +7,11 @@
 body{
     background-color: white;
     position: relative;
-    width: 1535px;
+    width: 100%;
     height: 700px;
 }
 .header{
-    width: 1535px;
+    width: 100%;
     height: 50px;
     padding: 10px 40px;
     display: flex;
@@ -42,7 +42,7 @@ body{
 .body{
     padding: 20px 120px 0px;
     height: 600px;
-    width: 1535px;
+    width: 100%;
 }
 .body .container{
     width: 1320px;
@@ -229,7 +229,7 @@ body{
 
 
 .footer{
-    width: 1535px;
+    width: 100%;
     height: 45px;
     background-color: #333333;
     color: white;

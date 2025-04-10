@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">    <link rel="stylesheet" href="home.html">
+    <link rel="stylesheet" href="/css/fixTests.css">
+</head>
+<body>
+    <div class="header">
+        <h1>QuizzForge</h1>
+        <nav>
+            <a href="./categoryManager.html">Danh mục</a>
+            <a class="selected" href="testManager.html">Bài test</a>
+            <a onclick="localStorage.setItem(`loginStatus`, 0)" href="./login.html">Đăng xuất</a>
+        </nav>
+    </div>
+    <div class="body">
+        <div class="container">
+            <div class="topContent">
+                <h1>Sửa bài test</h1>
+                <label for="">Tên bài test</label>
+                <input id="testNameInput" type="text" placeholder="Điền tên bài test">
+                <p class="redWarning"></p>
+                <div class="lowerInputs">
+                    <div class="category">
+                        <label for="">Danh mục</label> <br>
+                        <select name="" id="testCategoryInput">
+                            <option value="" disabled selected hidden>Chọn danh mục</option>
+                        </select>
+                        <p class="redWarning"></p>
+                    </div>
+                    <div class="time">
+                        <label for="">Thời gian (phút)</label> <br>
+                        <input id="testTimeInput" type="text" placeholder="Điền thời gian làm bài">
+                        <p class="redWarning"></p>
+                    </div>
+                </div>
+            </div>
+            <h1>Quản lý câu hỏi</h1>
+            <div class="interactLine">
+                <button onclick="addQuestion()" class="addButton">Thêm câu hỏi</button>
+                <button onclick="saveTest()" class="addButton">Lưu</button>
+            </div>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th id="id">ID</th>
+                        <th id="question" align="left">Câu hỏi</th>
+                        <th id="action">Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <tr>
+                        <td>1</td>
+                        <td align="left">📚 Lịch sử</td>
+                        <td><button class="fixButton">Sửa</button> <button class="deleteButton">Xóa</button></td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="footer">
+        <div>© 2025 Quiz App. All rights reserved.</div>
+    </div>
+    <div class="popUpBackground"></div>
+
+    <div class="deletePopUp">
+        <div class="top">
+            <h1>Xóa câu hỏi</h1>
+            <div onclick="hidePopUp()">x</div>
+        </div>
+        <div class="mid">
+            <p>Bạn chắc chắn muốn xoá câu hỏi này?</p>
+        </div>
+        <div class="bot">
+            <button onclick="hidePopUp()" class="cancelButton">Hủy</button>
+            <button onclick="confirmDelete()" class="deleteButton">Xóa</button>
+        </div>
+    </div>
+    <div class="addPopUp">
+        <div class="top">
+            <h1>Thêm danh mục</h1>
+            <div onclick="hidePopUp()">x</div>
+        </div>
+        <div class="mid">
+            <label for="">Câu hỏi</label> <br>
+            <input id="categoryName" class="inputBar" type="text" placeholder="Nhập câu hỏi">
+            <p class="redWarning"></p>
+            <label for="">Câu trả lời</label> <br>
+            <div class="answerSlot">
+                <input class="inputBar" type="text" placeholder="Nhập câu trả lời">
+                <p class="redWarning"></p>
+                <img src="/assets/images/quiz web design/Modal thêm/Interface/Vector.png" alt="">
+            </div>
+            <div class="answerSlot">
+                <input class="inputBar" type="text" placeholder="Nhập câu trả lời">
+                <p class="redWarning"></p>
+                <img src="/assets/images/quiz web design/Modal thêm/Interface/Vector.png" alt="">
+            </div>
+            <div class="answerSlot">
+                <input class="inputBar" type="text" placeholder="Nhập câu trả lời">
+                <p class="redWarning"></p>
+                <img src="/assets/images/quiz web design/Modal thêm/Interface/Vector.png" alt="">
+            </div>
+            <div class="answerSlot">
+                <input class="inputBar" type="text" placeholder="Nhập câu trả lời">
+                <p class="redWarning"></p>
+                <img src="/assets/images/quiz web design/Modal thêm/Interface/Vector.png" alt="">
+            </div>
+            <button class="addAnswer">Thêm câu trả lời</button>
+        </div>
+        <div class="bot">
+            <button onclick="hidePopUp()" class="cancelButton">Hủy</button>
+            <button onclick="saveQuestion()" class="saveButton">Lưu</button>
+        </div>
+    </div>
+    <div class="fixPopUp">
+        <div class="top">
+            <h1>Sửa danh mục</h1>
+            <div onclick="hidePopUp()">x</div>
+        </div>
+        <div class="mid">
+            <label for="">Câu hỏi</label> <br>
+            <input id="categoryName" class="inputBar" type="text" placeholder="Nhập câu hỏi">
+            <p class="redWarning"></p>
+            <label for="">Câu trả lời</label> <br>
+            <div class="answerSlot">
+                <input class="inputBar" type="text" placeholder="Nhập câu trả lời">
+                <p class="redWarning"></p>
+                <img src="/assets/images/quiz web design/Modal thêm/Interface/Vector.png" alt="">
+            </div>
+            <div class="answerSlot">
+                <input class="inputBar" type="text" placeholder="Nhập câu trả lời">
+                <p class="redWarning"></p>
+                <img src="/assets/images/quiz web design/Modal thêm/Interface/Vector.png" alt="">
+            </div>
+            <div class="answerSlot">
+                <input class="inputBar" type="text" placeholder="Nhập câu trả lời">
+                <p class="redWarning"></p>
+                <img src="/assets/images/quiz web design/Modal thêm/Interface/Vector.png" alt="">
+            </div>
+            <div class="answerSlot">
+                <input class="inputBar" type="text" placeholder="Nhập câu trả lời">
+                <p class="redWarning"></p>
+                <img src="/assets/images/quiz web design/Modal thêm/Interface/Vector.png" alt="">
+            </div>
+            <button class="addAnswer">Thêm câu trả lời</button>
+        </div>
+        <div class="bot">
+            <button onclick="hidePopUp()" class="cancelButton">Hủy</button>
+            <button onclick="saveFixedQuestion()" class="saveButton">Lưu</button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/fixTests.js"></script>
+</body>
+</html>

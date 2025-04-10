@@ -35,7 +35,7 @@ body{
 }
 .container{
     width: 533px;
-    height: 484px;
+    height: fit-content;
     border-radius: 20px;
     box-shadow: 0px 10px 15px 0px #00000008;
     box-shadow: 0px 3px 11px 0px #0000000F;
@@ -78,19 +78,24 @@ body{
     letter-spacing: -0.2px;
     text-align: center;
 }
-.container p{
+.container .registerLine{
     text-align: center;
     width: 444px;
     height: 25px;
-    margin: 30px auto 0;
+    margin: 30px auto 0px;
     font-weight: 600;
     font-size: 14px;
     line-height: 22px;
-    letter-spacing: 0px;
-    text-align: center;
     color: #71717A;
 }
-.container p a{
+.container .registerLine a{
     color: #0D6EFD;
     text-decoration: none;
+}
+.container .redWarning{
+    color: #DC3545;
+    font-size: 13px;
+    font-family: Inter;
+   margin-top: -20px;
+   margin-bottom: 20px;
 }
