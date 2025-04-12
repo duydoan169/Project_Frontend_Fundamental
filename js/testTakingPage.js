@@ -15,8 +15,24 @@ for(let i=0; i<tests.length; i++){
     }
 }
 document.getElementsByTagName("h1")[1].innerText=tests[currentTestIndex].testName;
-document.getElementsByTagName("p")[1].innerText=`Thời gian: ${tests[currentTestIndex].playTime} phút`;
-document.getElementsByTagName("p")[2].innerText=`Còn lại: ${tests[currentTestIndex].playTime-1}:59 phút`;
+document.getElementsByClassName("totalTime")[0].innerText=`Thời gian: ${tests[currentTestIndex].playTime} phút`;
+let minutes = tests[currentTestIndex].playTime;
+let seconds = 0;
+document.getElementsByClassName("timeLeft")[0].innerText=`Còn lại: ${minutes}:00 phút`;
+let countDown = setInterval(() => {
+    if (seconds == 0) {
+        if (minutes == 0) {
+            testDone();
+        } else {
+            minutes--;
+            seconds = 59;
+        }
+    } else {
+        seconds--;
+    }
+    document.getElementsByClassName("timeLeft")[0].innerText=`Còn lại: ${minutes}:${seconds < 10 ? '0' + seconds : seconds} phút`;
+}, 1000);
+
 function printAll(){
     let str="";
     for(let i=0; i<tests[currentTestIndex].questions.length; i++){
@@ -26,10 +42,8 @@ function printAll(){
             </div>`
     }
     document.getElementsByClassName("nav")[0].innerHTML=str;
-    for(let i=0; i<tests[currentTestIndex].questions.length; i++){
-        document.getElementsByTagName("h2")[1].innerText=`Câu hỏi ${currentQuestion+1} trên ${tests[currentTestIndex].questions.length}:`;
-        document.getElementsByTagName("p")[0].innerText=`${tests[currentTestIndex].questions[currentQuestion].content}`;
-    }
+    document.getElementsByTagName("h2")[1].innerText=`Câu hỏi ${currentQuestion+1} trên ${tests[currentTestIndex].questions.length}:`;
+    document.getElementsByTagName("p")[0].innerText=`${tests[currentTestIndex].questions[currentQuestion].content}`;
     let answers="";
     for(let i=0; i<tests[currentTestIndex].questions[currentQuestion].answers.length; i++){
         answers+=`
@@ -63,10 +77,30 @@ function hidePopUp(){
     document.getElementsByClassName("resultPopUp")[0].style.display="none";
 }
 function testDone(){
+    clearInterval(countDown);
     document.getElementsByClassName("popUpBackground")[0].style.display="block";
     document.getElementsByClassName("resultPopUp")[0].style.display="block";
     document.getElementById("totalQuestionsNum").innerText=tests[currentTestIndex].questions.length;
     document.getElementById("correctAnswersNum").innerText=tests[currentTestIndex].questions.length;
     tests[currentTestIndex].playAmount+=1;
     localStorage.setItem("tests", JSON.stringify(tests));
+}
+function retryTest(){
+    hidePopUp();
+    minutes = tests[currentTestIndex].playTime;
+    seconds = 0;
+    document.getElementsByClassName("timeLeft")[0].innerText=`Còn lại: ${minutes}:00 phút`;
+    countDown = setInterval(() => {
+        if (seconds == 0) {
+            if (minutes == 0) {
+                testDone();
+            } else {
+                minutes--;
+                seconds = 59;
+            }
+        } else {
+            seconds--;
+        }
+        document.getElementsByClassName("timeLeft")[0].innerText=`Còn lại: ${minutes}:${seconds < 10 ? '0' + seconds : seconds} phút`;
+    }, 1000);
 }
