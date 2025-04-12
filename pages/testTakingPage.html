@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="header">
-        <h1>QuizzForge</h1>
+        <h1 onclick="window.location.href=`./home.html`">QuizzForge</h1>
         <input type="text" placeholder="Tìm kiếm bài test">
         <nav>
             <a href="./home.html">Trang chủ</a>
@@ -19,10 +19,87 @@
         </nav>
     </div>
     <div class="main">
-
+        <div class="container">
+            <div class="questionNav">
+                <h2>Điều hướng nhanh</h2>
+                <div class="nav">
+                    <!-- <div class="questions selected">
+                        1
+                    </div>
+                    <div class="questions">
+                        2
+                    </div>
+                    <div class="questions">
+                        3
+                    </div>
+                    <div class="questions">
+                        4
+                    </div>
+                    <div class="questions">
+                        5
+                    </div> -->
+                </div>
+                <b>Lưu ý: Đây là danh sách câu hỏi bạn có thể sử dụng để điều hướng.</b>
+            </div>
+            <div class="content">
+                <div class="contentMain">
+                    <h1><!-- tên bài test --></h1>
+                    <h2><!-- số câu hỏi --></h2>
+                    <p><!-- câu hỏi --></p>
+                    <div class="answers">
+                        <!-- <div class="answer">
+                            <input type="checkbox">
+                            <label for="">Data</label>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button onclick="testDone()" id="doneTest">Hoàn thành</button>
+                    <div class="navButtons">
+                        <button onclick="goBack()" id="goBack">Trước</button>
+                        <button onclick="goForward()" id="goForward">Tiếp</button>
+                    </div>
+                </div>
+            </div>
+            <div class="testTime">
+                <p class="totalTime"></p>
+                <p class="timeLeft"></p>
+            </div>
+        </div>
     </div>
     <div class="footer">
         <div>© 2025 Quiz App. All rights reserved.</div>
+    </div>
+    <div class="popUpBackground"></div>
+    <div class="resultPopUp">
+        <div class="top">
+            <p onclick="hidePopUp()">x</p>
+        </div>
+        <div class="mid">
+            <h1>Hoàn thành</h1>
+            <div class="green">
+                <h2>Chúc mừng!</h2>
+                <p>Bạn đã hoàn thành bài kiểm tra</p>
+                <hr>
+                <h2>Điểm của bạn: <b>100%</b></h2>
+            </div>
+            <div class="grey">
+                <div class="greyTop">
+                    <h2>Kết quả cụ thể</h2>
+                </div>
+                <div class="greyBot">
+                    <p><b>Tổng số câu hỏi</b>: <span id="totalQuestionsNum"></span></p>
+                    <p><b>Câu trả lời đúng</b>: <span id="correctAnswersNum"></span></p>
+                    <p><b>Câu trả lời sai</b>: 0</p>
+                </div>
+            </div>
+        </div>
+        <div class="bot">
+            <div class="buttons">
+                <button onclick="hidePopUp()" id="retryButton">Làm lại</button>
+                <button onclick="window.location.href=`./home.html`" id="homeButton">Trang chủ</button>
+            </div>
+        </div>
     </div>
     <script src="/js/testTakingPage.js"></script>
 </body>

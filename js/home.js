@@ -7,25 +7,8 @@ loginStatusCheck();
 
 
 document.body.style.zoom = "80%";
-let tests=JSON.parse(localStorage.getItem("tests"))||[
-    {id:1, testName:"Thách thức sự hiểu biết của bạn1", categoryId:1, image:"/assets/images/quiz web design/Container/image 1.png", playTime:15, playAmount:1, questions:[1,2]},
-    {id:2, testName:"Thách thức sự hiểu biết của bạn2", categoryId:1, image:"/assets/images/quiz web design/Container/image 1.png", playTime:14, playAmount:2, questions:[1]},
-    {id:3, testName:"Thách thức sự hiểu biết của bạn3", categoryId:1, image:"/assets/images/quiz web design/Container/image 1.png", playTime:12, playAmount:3, questions:[2,3,5,6]},
-    {id:10, testName:"Thách thức sự hiểu biết của bạn4bbbb", categoryId:1, image:"/assets/images/quiz web design/Container/image 1.png", playTime:15, playAmount:2, questions:[]},
-    {id:1, testName:"Thách thức sự hiểu biết của bạnbbbb", categoryId:1, image:"/assets/images/quiz web design/Container/image 1.png", playTime:13, playAmount:5, questions:[]},
-    {id:8, testName:"Thách thức sự hiểu biết của bạnbbbb", categoryId:1, image:"/assets/images/quiz web design/Container/image 1.png", playTime:15, playAmount:6, questions:[]},
-    {id:5, testName:"Thách thức sự hiểu biết của bạnbbbb", categoryId:1, image:"/assets/images/quiz web design/Container/image 1.png", playTime:11, playAmount:4, questions:[]},
-    {id:4, testName:"Thách thức sự hiểu biết của bạnbbbb", categoryId:1, image:"/assets/images/quiz web design/Container/image 1.png", playTime:15, playAmount:8, questions:[]},
-    {id:1, testName:"Thách thức sự hiểu biết của bạnbbbb", categoryId:1, image:"/assets/images/quiz web design/Container/image 1.png", playTime:15, playAmount:3, questions:[]},
-    {id:7, testName:"Thách thức sự hiểu biết của bạnbbbb", categoryId:1, image:"/assets/images/quiz web design/Container/image 1.png", playTime:25, playAmount:10, questions:[]},
-    {id:1, testName:"Thách thức sự hiểu biết của bạnbbbb", categoryId:1, image:"/assets/images/quiz web design/Container/image 1.png", playTime:9, playAmount:5, questions:[]},
-    {id:1, testName:"Thách thức sự hiểu biết của bạnbbbb", categoryId:1, image:"/assets/images/quiz web design/Container/image 1.png", playTime:15, playAmount:5, questions:[]},
-    {id:9, testName:"Thách thức sự hiểu biết của bạnbbbb", categoryId:1, image:"/assets/images/quiz web design/Container/image 1.png", playTime:1, playAmount:5, questions:[]},
-    {id:1, testName:"Thách thức sự hiểu biết của bạnbbbb", categoryId:1, image:"/assets/images/quiz web design/Container/image 1.png", playTime:5, playAmount:5, questions:[]},
-    {id:1, testName:"Thách thức sự hiểu biết của bạn", categoryId:1, image:"/assets/images/quiz web design/Container/image 1.png", playTime:3, playAmount:5, questions:[]},
-    {id:1, testName:"Thách thức sự hiểu biết của bạn", categoryId:1, image:"/assets/images/quiz web design/Container/image 1.png", playTime:15, playAmount:5, questions:[]},
-    {id:1, testName:"Thách thức sự hiểu biết của bạn", categoryId:1, image:"/assets/images/quiz web design/Container/image 1.png", playTime:15, playAmount:5, questions:[]}
-];
+let categories=JSON.parse(localStorage.getItem("categories"))||[];
+let tests=JSON.parse(localStorage.getItem("tests"))||[];
 localStorage.setItem("tests", JSON.stringify(tests));
 let currentPage=1;
 let itemsPerPage=8;
@@ -54,10 +37,10 @@ function printTests(){
             <div class="card">
                 <img src="${tests[i].image}" alt="" width="120px" height="120px">
                 <div class="card-text">
-                    <div class="category">🏠 Đời sống</div>
+                    <div class="category">${categories[categories.findIndex(item => item.id == tests[i].categoryId)].emoji} ${categories[categories.findIndex(item => item.id == tests[i].categoryId)].name}</div>
                     <h3>${tests[i].testName}</h3>
                     <div class="testInfo">${tests[i].questions.length} câu hỏi - ${tests[i].playAmount} lượt chơi</div>
-                    <button>Chơi</button>
+                    <button onclick="takeTest(${tests[i].id})">Chơi</button>
                 </div>
             </div>`
     }
@@ -106,4 +89,13 @@ function buttonUnavailable(){
     } else{
         document.getElementsByClassName("goForward")[0].classList.remove("unavailable");
     }
+}
+function takeTest(id){
+    localStorage.setItem("currentTestId", id);
+    window.location.href="/pages/testTakingPage.html";
+}
+function randomTest(){
+    let randomTest=Math.round(Math.random()*tests.length);
+    localStorage.setItem("currentTestId", randomTest);
+    window.location.href="/pages/testTakingPage.html";
 }
