@@ -40,6 +40,12 @@ function hidePopUp(){
     document.getElementsByClassName("inputBar")[2].value="";
     document.getElementsByClassName("inputBar")[3].value="";
     document.getElementsByClassName("inputBar")[4].value="";
+    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+        checkbox.checked = false;
+    });
+    document.querySelectorAll('.redWarning').forEach( redWarning => {
+        redWarning.style.display="none";
+    });
 }
 let deleteIndex;
 function deleteQuestion(index){
