@@ -1,5 +1,6 @@
 
 function loginAccount(){
+    // default admin account
     let users=JSON.parse(localStorage.getItem("users"))||[{name:"admin", email: "admin123@gmail.com", password:"12345678", role:"admin"}];
     localStorage.setItem("users", JSON.stringify(users));
     let count=0;
